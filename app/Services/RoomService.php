@@ -5,11 +5,13 @@ declare(strict_types=1);
 namespace App\Services;
 
 use App\Actions\Room\DeleteRoomAction;
+use App\Actions\Room\GetRoomByHotelIdAction;
 use App\Actions\Room\GetRoomByIdAction;
 use App\Actions\Room\ListRoomAction;
 use App\Actions\Room\StoreRoomAction;
 use App\Actions\Room\UpdateRoomAction;
 use App\DTOs\RoomDto;
+use Illuminate\Pagination\LengthAwarePaginator;
 
 class RoomService
 {
@@ -30,6 +32,19 @@ class RoomService
     {
         return app(GetRoomByIdAction::class)
             ->setHotelId(hotelId: $id)
+            ->execute();
+    }
+
+    /**
+     * @param int $hotelId
+     * @param bool $paginated
+     * @return array|LengthAwarePaginator
+     */
+    public function getByIdHotel(int $hotelId, bool $paginated = false): array|LengthAwarePaginator
+    {
+        return app(GetRoomByHotelIdAction::class)
+            ->setHotelId(hotelId: $hotelId)
+            ->setPaginated(paginated: $paginated)
             ->execute();
     }
 

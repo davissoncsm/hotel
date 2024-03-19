@@ -7,6 +7,7 @@ namespace App\Http\Controllers;
 use App\DTOs\RoomDto;
 use App\Http\Requests\RoomRequest;
 use App\Services\RoomService;
+use Illuminate\View\View;
 
 class RoomController
 {
@@ -20,20 +21,31 @@ class RoomController
     }
 
     /**
-     * @return array
+     * @param int $hotelId
+     * @return View
      */
-    public function index()
+    public function index(int $hotelId): View
     {
-        return $this->service->getAll();
+        return view('room.list-rooms', compact('hotelId'));
+    }
+
+    /**
+     * @param int $hotelId
+     * @return View
+     */
+    public function create(int $hotelId): View
+    {
+        return view('room.create-room', compact('hotelId'));
     }
 
     /**
      * @param int $id
-     * @return array
+     * @return View
      */
-    public function edit(int $id)
+    public function edit(int $id): View
     {
-        return $this->service->getById(id: $id);
+        $room =  $this->service->getById(id: $id);
+        return view('room.edit-room', compact('room'));
     }
 
     /**

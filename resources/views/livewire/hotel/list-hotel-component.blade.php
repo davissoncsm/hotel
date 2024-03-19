@@ -24,7 +24,7 @@
                     Site
                 </th>
                 <th scope="col" class="px-6 py-3">
-                    Action
+                    Ações
                 </th>
             </tr>
             </thead>
@@ -48,9 +48,9 @@
                     </td>
                     <td class="px-6 py-4">
                         <div class="inline-flex rounded-md shadow-sm" role="group">
-                            <button type="button" class="text-blue-700 border border-blue-700 hover:bg-yellow-700 hover:text-white focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm p-2.5 text-center inline-flex items-center me-2 dark:border-blue-500 dark:text-blue-500 dark:hover:text-white dark:focus:ring-blue-800 dark:hover:bg-blue-500">
+                            <a href="{{route('list.rooms', $hotel['id'])}}" type="button" class="text-blue-700 border border-blue-700 hover:bg-yellow-700 hover:text-white focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm p-2.5 text-center inline-flex items-center me-2 dark:border-blue-500 dark:text-blue-500 dark:hover:text-white dark:focus:ring-blue-800 dark:hover:bg-blue-500">
                                 <i class="fa-solid fa-bed"></i>
-                            </button>
+                            </a>
                             <a href="{{route('edit.hotel', $hotel['id'])}}" type="button" class="text-yellow-700 border border-yellow-700 hover:bg-yellow-700 hover:text-white focus:ring-4 focus:outline-none focus:ring-yellow-300 font-medium rounded-lg text-sm p-2.5 text-center inline-flex items-center me-2 dark:border-yellow-500 dark:text-yellow-500 dark:hover:text-white dark:focus:ring-yellow-800 dark:hover:bg-yellow-500">
                                 <i class="fa-regular fa-pen-to-square"></i>
                             </a>

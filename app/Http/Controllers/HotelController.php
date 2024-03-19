@@ -28,6 +28,9 @@ class HotelController
         return view('hotel.list-hotels');
     }
 
+    /**
+     * @return View
+     */
     public function create(): View
     {
         return view('hotel.create-hotel');

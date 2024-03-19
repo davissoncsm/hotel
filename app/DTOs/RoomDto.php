@@ -33,6 +33,20 @@ class RoomDto extends Dto
     }
 
     /**
+     * @param array $data
+     * @return self
+     */
+    public static function makeFromArray(array $data): self
+    {
+        return new self(
+            hotelId: $data['hotelId'],
+            name: $data['name'],
+            description: $data['description'],
+            id: isset($data['roomId']) ? (int)$data['roomId'] : null
+        );
+    }
+
+    /**
      * @return array
      */
     public function create(): array

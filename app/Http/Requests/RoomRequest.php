@@ -41,7 +41,7 @@ class RoomRequest extends FormRequest
                 'roomId' => 'required|int',
                 'hotelId' => 'required|int',
                 'name' => 'required',
-                'description' => 'required|max:150',
+                'description' => 'required|max:500',
             ],
         };
     }
@@ -57,7 +57,7 @@ class RoomRequest extends FormRequest
             'roomId.required' => 'Obrigatório informar o quarto',
             'name.required' => 'O campo nome é obrigatório',
             'description.required' => 'O campo descrição é obrigatório',
-            'description.max' => 'O campo descrição deve ter no maximo 150 caracteres',
+            'description.max' => 'O campo descrição deve ter no maximo 500 caracteres',
         ];
     }
 
