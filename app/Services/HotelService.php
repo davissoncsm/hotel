@@ -10,16 +10,20 @@ use App\Actions\Hotel\ListHotelsAction;
 use App\Actions\Hotel\StoreHotelAction;
 use App\Actions\Hotel\UpdateHotelAction;
 use App\DTOs\HotelDto;
+use Illuminate\Pagination\LengthAwarePaginator;
 
 class HotelService
 {
     /**
      * Retrieve all hotels
-     * @return array
+     * @param bool $paginated
+     * @return array|LengthAwarePaginator
      */
-    public function getAll(): array
+    public function getAll(bool $paginated = false): array|LengthAwarePaginator
     {
-        return app(ListHotelsAction::class)->execute();
+        return app(ListHotelsAction::class)
+            ->setPaginated(paginated: $paginated)
+            ->execute();
     }
 
     /**
@@ -68,4 +72,5 @@ class HotelService
             ->setId(id: $id)
             ->execute();
     }
+
 }

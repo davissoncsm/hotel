@@ -5,13 +5,15 @@ declare(strict_types=1);
 namespace App\Repositories\Contracts;
 
 use App\DTOs\Dto;
+use Illuminate\Pagination\LengthAwarePaginator;
 
 interface IBaseRepository
 {
     /**
-     * @return array
+     * @param bool $paginated
+     * @return array|LengthAwarePaginator
      */
-    public function getAll(): array;
+    public function getAll(bool $paginated): array|LengthAwarePaginator;
 
     /**
      * @param int $id

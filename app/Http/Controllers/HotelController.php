@@ -7,7 +7,7 @@ namespace App\Http\Controllers;
 use App\DTOs\HotelDto;
 use App\Http\Requests\HotelRequest;
 use App\Services\HotelService;
-
+use Illuminate\View\View;
 
 class HotelController
 {
@@ -21,20 +21,26 @@ class HotelController
     }
 
     /**
-     * @return array
+     * @return View
      */
-    public function index()
+    public function index(): View
     {
-        return $this->service->getAll();
+        return view('hotel.list-hotels');
+    }
+
+    public function create(): View
+    {
+        return view('hotel.create-hotel');
     }
 
     /**
      * @param int $id
-     * @return array
+     * @return View
      */
-    public function edit(int $id)
+    public function edit(int $id): View
     {
-        return $this->service->getById(id: $id);
+        $hotel =  $this->service->getById(id: $id);
+        return view('hotel.edit-hotel', compact('hotel'));
     }
 
     /**

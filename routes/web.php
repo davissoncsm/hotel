@@ -1,18 +1,10 @@
 <?php
 
+use App\Http\Controllers\HotelController;
 use Illuminate\Support\Facades\Route;
 
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider and all of them will
-| be assigned to the "web" middleware group. Make something great!
-|
-*/
-
-Route::get('/', function () {
-    return view('welcome');
+Route::group(['prefix' => 'hotel'], function (){
+    Route::get('/',[HotelController::class, 'index'])->name('list.hotel');
+    Route::get('/create', [HotelController::class, 'create'])->name('create.hotel');
+    Route::get('/edit/{id}', [HotelController::class, 'edit'])->name('edit.hotel');
 });

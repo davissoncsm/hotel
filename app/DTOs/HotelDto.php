@@ -38,6 +38,22 @@ class HotelDto extends Dto
     }
 
     /**
+     * @param array $data
+     * @return self
+     */
+    public static function makeFromArray(array $data): self
+    {
+        return new self(
+            address: $data['address'],
+            city: $data['city'],
+            state: $data['state'],
+            zipCode: $data['zipCode'],
+            website: $data['website'],
+            id: isset($data['hotelId']) ? (int)$data['hotelId'] : null
+        );
+    }
+
+    /**
      * @return array
      */
     public function create(): array

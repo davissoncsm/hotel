@@ -47,6 +47,7 @@ class HotelRequest extends FormRequest
                 'zipCode' => 'required|size:8',
                 'website' => 'required|url',
             ],
+            'GET' => []
         };
     }
 

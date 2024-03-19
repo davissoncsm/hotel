@@ -6,9 +6,15 @@ namespace App\Actions\Hotel;
 
 use App\Actions\ActionAbstract;
 use App\Repositories\Contracts\IHotelRepository;
+use Illuminate\Pagination\LengthAwarePaginator;
 
 class ListHotelsAction extends ActionAbstract
 {
+
+    /**
+     * @var bool
+     */
+    private bool $paginated = false;
 
     /**
      * instance class
@@ -18,11 +24,22 @@ class ListHotelsAction extends ActionAbstract
         private IHotelRepository $repository,
     ){
     }
+
     /**
-     * @return array
+     * @param bool $paginated
+     * @return $this
      */
-    function execute(): array
+    public function setPaginated(bool $paginated): static
     {
-        return $this->repository->getAll();
+        $this->paginated = $paginated;
+        return $this;
+    }
+
+    /**
+     * @return array|LengthAwarePaginator
+     */
+    function execute(): array|LengthAwarePaginator
+    {
+        return $this->repository->getAll(paginated:  $this->paginated);
     }
 }

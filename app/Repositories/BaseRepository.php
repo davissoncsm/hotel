@@ -9,6 +9,7 @@ use App\Repositories\Contracts\IBaseRepository;
 use Exception;
 use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Database\Eloquent\Collection;
+use Illuminate\Pagination\LengthAwarePaginator;
 use Illuminate\Support\Facades\DB;
 use Support\Modules\Repository\NotEntityDefinedException;
 
@@ -39,11 +40,16 @@ class BaseRepository implements IBaseRepository
     }
 
     /**
-     * @return array
+     * @param bool $paginated
+     * @return array|LengthAwarePaginator
      * @throws Exception
      */
-    public function getAll(): array
+    public function getAll(bool $paginated): array|LengthAwarePaginator
     {
+        if($paginated){
+            return $this->run(fn() => $this->entity->paginate(10));
+        }
+
         return $this->run(fn() => $this->entity->get())->toArray();
     }
 
