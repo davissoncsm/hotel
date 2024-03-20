@@ -3,7 +3,9 @@
 namespace App\Providers;
 
 use Api\Repositories\Contracts\IHotelRepositoryApi;
+use Api\Repositories\Contracts\IRoomRepositoryApi;
 use Api\Repositories\HotelRepositoryApi;
+use Api\Repositories\RoomRepositoryApi;
 use App\Repositories\BaseRepository;
 use App\Repositories\Contracts\IBaseRepository;
 use App\Repositories\Contracts\IHotelRepository;
@@ -45,6 +47,11 @@ class RepositoryServiceProvider extends ServiceProvider
         $this->app->bind(
             IHotelRepositoryApi::class,
             HotelRepositoryApi::class
+        );
+
+        $this->app->bind(
+            IRoomRepositoryApi::class,
+            RoomRepositoryApi::class
         );
     }
 }

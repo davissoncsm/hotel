@@ -7,12 +7,12 @@ namespace Api\Actions;
 use Api\Repositories\Contracts\IHotelRepositoryApi;
 use Illuminate\Support\Collection;
 
-class GetRoomsBylHotelActions
+class CreateNewHotelActions
 {
     /**
-     * @var int
+     * @var array
      */
-    private int $id;
+    private array $data;
 
     /**
      * class instance
@@ -24,20 +24,20 @@ class GetRoomsBylHotelActions
     }
 
     /**
-     * @param int $id
+     * @param array $data
      * @return $this
      */
-    public function setId(int $id): static
+    public function setData(array $data): static
     {
-        $this->id = $id;
+        $this->data = $data;
         return $this;
     }
 
     /**
      * @return object
      */
-    public function get(): object
+    public function create(): object
     {
-        return $this->repositoryApi->getById(id: $this->id);
+        return $this->repositoryApi->create(data: $this->data);
     }
 }

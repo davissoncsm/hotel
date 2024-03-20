@@ -18,4 +18,10 @@ interface IHotelRepositoryApi
      * @return object
      */
     public function getById(int $id): object;
+
+    /**
+     * @param array $data
+     * @return object
+     */
+    public function create(array $data): object;
 }
