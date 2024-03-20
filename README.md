@@ -26,8 +26,8 @@ Para testar o projeto é necessario ter o Docker instalado
 
 - Executar o comando: `docker compose up -d`
 - Executar o comando: `composer install`
-- Executar o comando: `php artisan key:generate`
 - Renomear  o arquivo: `.env.example` para `.env`
+- Executar o comando: `php artisan key:generate`
 - O projeto ira rodar na porta: `8080`
 - A rota inicial é: `/hotel`
 - Para popular o banco de dados: `php artisan migrate --seed` 
