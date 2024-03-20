@@ -36,10 +36,10 @@ class StoreRoomAction extends ActionAbstract
     }
 
     /**
-     * @return void
+     * @return object
      */
-    function execute(): void
+    function execute(): object
     {
-         $this->repository->store(dto: $this->dto);
+         return $this->repository->store(dto: $this->dto);
     }
 }

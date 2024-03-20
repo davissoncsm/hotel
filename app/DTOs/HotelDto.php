@@ -25,6 +25,7 @@ class HotelDto extends Dto
      */
     public static function makeFromRequest(HotelRequest $request): self
     {
+        dd($request->validated());
         $validate = $request->validated();
 
         return new self(

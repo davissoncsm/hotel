@@ -23,9 +23,9 @@ interface IBaseRepository
 
     /**
      * @param Dto $dto
-     * @return void
+     * @return object
      */
-    public function store(Dto $dto) : void;
+    public function store(Dto $dto) : object;
 
     /**
      * @param Dto $dto

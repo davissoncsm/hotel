@@ -51,11 +51,11 @@ class RoomService
     /**
      * Create a new hotel
      * @param RoomDto $dto
-     * @return void
+     * @return object
      */
-    public function store(RoomDto $dto): void
+    public function store(RoomDto $dto): object
     {
-        app(StoreRoomAction::class)
+       return app(StoreRoomAction::class)
             ->setDto(dto: $dto)
             ->execute();
     }

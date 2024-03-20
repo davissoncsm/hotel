@@ -40,4 +40,9 @@ class RoomEntity extends Model
     {
         return RoomFactory::new();
     }
+
+    public function hotel()
+    {
+        return $this->belongsTo(HotelEntity::class, 'hotel_id', 'id');
+    }
 }

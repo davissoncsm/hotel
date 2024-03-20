@@ -35,7 +35,7 @@ class RoomRequest extends FormRequest
             'POST' =>[
                 'hotelId' => 'required|int',
                 'name' => 'required',
-                'description' => 'required|max:150',
+                'description' => 'required|max:500',
             ],
             'PUT' => [
                 'roomId' => 'required|int',

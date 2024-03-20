@@ -65,12 +65,12 @@ class BaseRepository implements IBaseRepository
 
     /**
      * @param Dto $dto
-     * @return void
+     * @return object
      * @throws Exception
      */
-    public function store(Dto $dto): void
+    public function store(Dto $dto): object
     {
-        $this->run(fn() => $this->entity->create($dto->create()));
+        return $this->run(fn() => $this->entity->create($dto->create()));
     }
 
     /**
