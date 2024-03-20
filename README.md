@@ -14,6 +14,12 @@ O teste foi desenvolvido utilizando:
 - Livewire
 - Docker
 
+O teste foi desenvolvido seguindo os requisitos informados mas conta com uma separação de camadas diferente da sugerida pelo Laravel
+
+Controllers > Services > Actions > Repositories > Entities 
+
+Além de utlizar DTOs para trafegar dados entre as camadas
+
 ## Executar
 
 Para testar o projeto é necessario ter o Docker instalado
