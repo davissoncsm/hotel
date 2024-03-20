@@ -41,4 +41,9 @@ class HotelEntity extends Model
     {
         return HotelFactory::new();
     }
+
+    public function rooms()
+    {
+        return $this->hasMany(RoomEntity::class, 'hotel_id', 'id');
+    }
 }
