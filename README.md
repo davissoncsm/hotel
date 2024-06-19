@@ -9,7 +9,7 @@
 
 
 O teste foi desenvolvido utilizando:
-- Laravel 10x
+- Laravel 10 x.x
 - Tailwind css
 - Livewire
 - Docker
