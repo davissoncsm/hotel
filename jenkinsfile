@@ -1,11 +1,10 @@
 pipline {
-    agent any
-
-    stages {
-        stage('Git Checkout') {
-            steps {
-                echo 'Hello jenkins'
-            }
-        }
+    stage('Git Checkout') {
+       git branch 'main', url: 'https://github.com/davissoncsm/hotel.git'
     }
+    
+    stage('Update') {
+        sh 'cd /var/www && git pull'
+    }
+    
 }

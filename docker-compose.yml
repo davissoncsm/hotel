@@ -44,6 +44,19 @@ services:
             - "5432:5432"
         networks:
             - hotel
+    jenkins:
+        image: jenkins/jenkins:lts
+        privileged: true
+        user: root
+        ports:
+            - "50000:50000"
+            - "8080:8080"
+        volumes:
+            - ./docker/jenkins:/var/jenkins_home
+            - /var/run/docker.sock:/var/run/docker.sock
+            - ./:/var/www
+        networks:
+            - hotel
 
 networks:
     hotel:
