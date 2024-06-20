@@ -1,9 +1,14 @@
 pipline {
     agent any
     stages {
+        stage('change Directory') {
+            steps {
+                sh 'cd ~ && cd /var/www'
+            }
+        }
         stage('Git Checkout') {
             steps {
-                sh 'cd ~ && cd /var/www && git pull'
+                sh 'git pull'
             }
         }
     }
