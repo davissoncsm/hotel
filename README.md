@@ -8,7 +8,7 @@
 </p>
 
 
-O teste foi desenvolvido utilizando:
+O teste foi desenvolvido utilizando: TESTE
 - Laravel 10 x.x
 - Tailwind css
 - Livewire
